@@ -3,38 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manuel Interactif - École A.A.Z</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:ital,wght@400;700&display=swap" rel="stylesheet">
+<title>École de Musique A.A.Z</title>
 
 <style>
-:root { --bleu:#002366; --rouge:#d60000; --blanc:#fff; --fond:#f4f7f9; }
+body{font-family:Arial;margin:0;background:#f4f4f4}
+header{background:#002366;color:white;text-align:center;padding:20px}
+nav{background:#eee;padding:10px;text-align:center}
+nav a{margin:10px;text-decoration:none;color:#002366;font-weight:bold}
 
-body{margin:0;font-family:Montserrat;background:var(--fond)}
+.section{padding:30px;text-align:center}
 
-.container{max-width:1000px;margin:auto;background:#fff;box-shadow:0 0 40px rgba(0,0,0,.1)}
+.card{background:white;padding:20px;margin:15px auto;max-width:500px;border-radius:10px}
 
-header{background:linear-gradient(135deg,var(--bleu),#001a4d);color:#fff;text-align:center;padding:50px}
-header h1{margin:0}
+.btn{background:#d60000;color:white;padding:10px 20px;border:none;border-radius:20px;cursor:pointer}
 
-nav{background:#eee;padding:10px;text-align:center;position:sticky;top:0}
-nav a{margin:10px;color:var(--bleu);text-decoration:none;font-weight:bold}
+input,select{padding:10px;width:80%;margin:10px}
 
-.module{padding:40px}
+footer{background:#002366;color:white;text-align:center;padding:20px}
 
-.card{background:#fff;padding:20px;border-radius:10px;box-shadow:0 5px 10px rgba(0,0,0,.1);margin:15px 0}
-
-.btn{background:var(--rouge);color:white;border:none;padding:10px 20px;border-radius:20px;cursor:pointer}
-
-.quiz-box{border:1px dashed #ccc;padding:15px;margin-top:15px}
-
-footer{background:var(--bleu);color:white;text-align:center;padding:30px}
-
-.whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25D366;color:white;padding:15px;border-radius:50%;
-text-decoration:none;
-}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%}
 </style>
 </head>
 
@@ -42,131 +29,109 @@ text-decoration:none;
 
 <header>
 <h1>École de Musique A.A.Z</h1>
-<p>Le Voyage des Notes 🎵</p>
+<p>Formation musicale professionnelle 🎵</p>
 </header>
 
 <nav>
-<a href="#eveil">3-6 ans</a>
-<a href="#fondation">7-11 ans</a>
-<a href="#expert">Adultes</a>
+<a href="#cours">Cours</a>
 <a href="#livre">Livre</a>
+<a href="#inscription">Inscription</a>
 </nav>
 
-<div class="container">
-
-<!-- MODULE 1 -->
-<section class="module" id="eveil">
-<h2>Éveil musical</h2>
+<!-- COURS -->
+<section class="section" id="cours">
+<h2>📚 Nos cours</h2>
 
 <div class="card">
-<h3>Grave vs Aigu</h3>
-<button onclick="jouerNote(110)" class="btn">Grave</button>
-<button onclick="jouerNote(880)" class="btn">Aigu</button>
-</div>
-
-</section>
-
-<!-- MODULE 2 -->
-<section class="module" id="fondation">
-<h2>Fondations</h2>
-
-<div class="card">
-<h3>Test : Combien de lignes ?</h3>
-
-<button onclick="alert('❌ Faux')" class="btn">4</button>
-<button onclick="alert('✅ Correct')" class="btn">5</button>
-<button onclick="alert('❌ Faux')" class="btn">6</button>
-
-</div>
-
-</section>
-
-<!-- MODULE 3 -->
-<section class="module" id="expert">
-<h2>Accords</h2>
-
-<div class="card">
-<button onclick="jouerAccord([261,329,392])" class="btn">Accord DO</button>
+<p>Apprenez la musique facilement : piano, chant, rythme</p>
 </div>
 
 </section>
 
 <!-- LIVRE -->
-<section class="module" id="livre">
-<h2>📘 Livre complet</h2>
+<section class="section" id="livre">
+<h2>📘 Livre musical</h2>
 
 <div class="card">
-<p>Accès complet au manuel</p>
+<p>Guide complet de formation musicale</p>
 <h3>15000 FCFA</h3>
 
-<input type="password" id="codeLivre" placeholder="Code">
+<a href="https://wa.me/237682885134?text=Bonjour%20je%20veux%20acheter%20le%20livre%20A.A.Z" class="btn">
+💬 Envoyer preuve
+</a>
+
+<input type="password" id="codeLivre" placeholder="Entrer votre code">
+
 <button onclick="verifierLivre()" class="btn">Valider</button>
 
 <a id="downloadLivre" href="livre.pdf" download class="btn" style="display:none">
-Télécharger
+📥 Télécharger le livre
 </a>
 
 <p>
+Paiement :<br>
 Orange Money : 655 90 87 23<br>
 MTN : 682 88 51 34
 </p>
 
 </div>
-
 </section>
 
+<!-- INSCRIPTION -->
+<section class="section" id="inscription">
+<h2>📝 Inscription</h2>
+
+<div class="card">
+
+<input type="text" id="nom" placeholder="Nom">
+<input type="tel" id="tel" placeholder="Téléphone">
+
+<select id="niveau">
+<option>3-6 ans</option>
+<option>7-11 ans</option>
+<option>12-15 ans</option>
+<option>16-18 ans</option>
+<option>Adulte</option>
+</select>
+
+<button onclick="inscriptionWhatsApp()" class="btn">
+S'inscrire
+</button>
+
 </div>
+</section>
 
 <footer>
-<p>© École A.A.Z</p>
+<p>📞 655 90 87 23</p>
+<p>💬 682 88 51 34</p>
 </footer>
 
-<!-- WhatsApp -->
-<a href="https://wa.me/237682885134?text=Bonjour%20je%20veux%20m'inscrire" class="whatsapp">💬</a>
+<a href="https://wa.me/237682885134" class="whatsapp">💬</a>
 
 <script>
-
-// AUDIO FIX
-let audioCtx;
-
-function initAudio(){
-if(!audioCtx){
-audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-}
-}
-
-function jouerNote(freq){
-initAudio();
-let o=audioCtx.createOscillator();
-let g=audioCtx.createGain();
-o.frequency.value=freq;
-o.connect(g); g.connect(audioCtx.destination);
-o.start(); o.stop(audioCtx.currentTime+1);
-}
-
-function jouerAccord(freqs){
-initAudio();
-freqs.forEach(f=>{
-let o=audioCtx.createOscillator();
-let g=audioCtx.createGain();
-o.frequency.value=f;
-o.connect(g); g.connect(audioCtx.destination);
-o.start(); o.stop(audioCtx.currentTime+1.5);
-});
-}
-
-// LIVRE
 function verifierLivre(){
 let code=document.getElementById("codeLivre").value;
 
 if(code==="AAZLIVRE2026"){
-document.getElementById("downloadLivre").style.display="inline-block";
-alert("Code valide");
+document.getElementById("downloadLivre").style.display="block";
+alert("Code valide ✅");
 }else{
-alert("Code incorrect");
+alert("Code incorrect ❌");
 }
 }
 
+function inscriptionWhatsApp(){
+let nom=document.getElementById("nom").value;
+let tel=document.getElementById("tel").value;
+let niveau=document.getElementById("niveau").value;
+
+let message=`Bonjour je veux m'inscrire à l'école A.A.Z.%0A
+Nom : ${nom}%0A
+Téléphone : ${tel}%0A
+Niveau : ${niveau}`;
+
+window.open(`https://wa.me/237682885134?text=${message}`);
+}
 </script>
 
 </body>
